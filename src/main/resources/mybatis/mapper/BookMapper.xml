@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mavenbase.minilibspringboot.dao.BookMapper">
+    <insert id="insertBook" parameterType="Books">
+        insert into book.t_book (typeid, isbn, title, authors, pressid)
+        values (#{typeId}, #{isbn}, #{title}, #{authors}, #{pressId})
+    </insert>
+    <delete id="deleteBook" parameterType="Books">
+        delete
+        from book.t_book
+        where bookid = #{bookId}
+    </delete>
+    <update id="updateBook" parameterType="Books">
+        update book.t_book
+        set typeid=#{typeId},
+            isbn=#{isbn},
+            title=#{title},
+            authors=#{authors},
+            pressid=#{pressId}
+        where bookid = #{bookId}
+    </update>
+    <select id="queryBookListByTitle" resultType="Books">
+        select *
+        from book.t_book
+        where book.t_book.title like concat('%', #{title}, '%')
+        order by t_book.bookid
+    </select>
+</mapper>
