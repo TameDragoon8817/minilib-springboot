@@ -27,4 +27,10 @@
         where book.t_book.title like concat('%', #{title}, '%')
         order by t_book.bookid
     </select>
+    <select id="queryBookTypeList" resultType="BookType">
+        select codeid,codename from book.code_booktype order by codeid
+    </select>
+    <select id="queryBookListById" resultType="Books">
+        select * from book.t_book where book.t_book.bookid=#{bookId}
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.mavenbase.minilibspringboot.service;
 
 import com.mavenbase.minilibspringboot.dao.BookMapper;
+import com.mavenbase.minilibspringboot.pojo.BookType;
 import com.mavenbase.minilibspringboot.pojo.Books;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public int deleteBook(Books books) {
-        bookMapper.deleteBook(books);
+    public int deleteBook(int id) {
+        bookMapper.deleteBook(id);
         return 0;
     }
 
@@ -33,5 +34,15 @@ public class BookServiceImpl implements BookService {
     public int updateBook(Books books) {
         bookMapper.updateBook(books);
         return 0;
+    }
+
+    @Override
+    public List<BookType> queryBookTypeList() {
+        return bookMapper.queryBookTypeList();
+    }
+
+    @Override
+    public Books queryBookListById(int id) {
+        return bookMapper.queryBookListById(id);
     }
 }

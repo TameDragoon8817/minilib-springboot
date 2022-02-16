@@ -8,6 +8,18 @@ public class Books {
     private String pressId;
     private String typeId;
 
+    public Books() {
+    }
+
+    public Books(String bookId, String isbn, String title, String authors, String pressId, String typeId) {
+        this.bookId = bookId;
+        this.isbn = isbn;
+        this.title = title;
+        this.authors = authors;
+        this.pressId = pressId;
+        this.typeId = typeId;
+    }
+
     @Override
     public String toString() {
         return "Books{" +
