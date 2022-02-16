@@ -48,12 +48,15 @@ public class BookController {
     }
 
     @RequestMapping("/book/toInsert")
-    public String ToInsertBook(){
+    public String ToInsertBook(Books books,Model model){
+        List<BookType> bookTypes=bookService.queryBookTypeList();
+        model.addAttribute("bookTypes",bookTypes);
         return "book/insert";
     }
 
     @RequestMapping("/book/insert")
     public String InsertBook(Books books,Model model){
+        System.out.println(books);
         bookService.insertBook(books);
         model.addAttribute("msg","添加操作成功");
         String emptyTitle="";
