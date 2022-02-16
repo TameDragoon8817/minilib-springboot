@@ -24,7 +24,6 @@ public class BookController {
     public String QueryBook(String title, Model model){
         List<Books> listByTitle = bookService.queryBookListByTitle(title);
         model.addAttribute("list",listByTitle);
-        System.out.println(listByTitle);
         return "book/query-list";
     }
 
@@ -40,13 +39,29 @@ public class BookController {
 
     @RequestMapping("/book/update")
     public String UpdateBook(Books books,Model model){
-        System.out.println(books);
         bookService.updateBook(books);
         model.addAttribute("msg","更新操作成功");
         String emptyTitle="";
         List<Books> listByTitle = bookService.queryBookListByTitle(emptyTitle);
         model.addAttribute("list",listByTitle);
-        System.out.println(listByTitle);
+        return "book/query-list";
+    }
+
+    @RequestMapping("/book/toInsert")
+    public String ToInsertBook(Books books,Model model){
+        List<BookType> bookTypes=bookService.queryBookTypeList();
+        model.addAttribute("bookTypes",bookTypes);
+        return "book/insert";
+    }
+
+    @RequestMapping("/book/insert")
+    public String InsertBook(Books books,Model model){
+        System.out.println(books);
+        bookService.insertBook(books);
+        model.addAttribute("msg","添加操作成功");
+        String emptyTitle="";
+        List<Books> listByTitle = bookService.queryBookListByTitle(emptyTitle);
+        model.addAttribute("list",listByTitle);
         return "book/query-list";
     }
 
@@ -54,6 +69,9 @@ public class BookController {
     public String DeleteBook(@PathVariable("id")int id,Model model){
         bookService.deleteBook(id);
         model.addAttribute("msg","删除操作成功");
+        String emptyTitle="";
+        List<Books> listByTitle = bookService.queryBookListByTitle(emptyTitle);
+        model.addAttribute("list",listByTitle);
         return "book/query-list";
     }
 }

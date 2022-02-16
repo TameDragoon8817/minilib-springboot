@@ -51,6 +51,7 @@
 
         <div class="ml-sm-auto col-lg-10 pt-3 px-4">
             <h2>查询图书</h2>
+            <a class="btn btn-sm btn-success" th:href="@{/book/toInsert}">添加图书</a>
             <form class="navbar-form navbar-left" style="width: 50%" th:action="@{/book/query/}" role="form">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="请输入需要查找书籍的关键字" name="title">

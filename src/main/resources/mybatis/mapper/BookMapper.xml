@@ -10,7 +10,7 @@
     <delete id="deleteBook" parameterType="Books">
         delete
         from book.t_book
-        where bookid = #{bookId}
+        where bookid = #{id}
     </delete>
     <update id="updateBook" parameterType="Books">
         update book.t_book

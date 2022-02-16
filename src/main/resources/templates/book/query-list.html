@@ -36,6 +36,21 @@
 			}
 
 		</style>
+		<script lang="javascript">
+			/*function del(){
+				var msg="确认要进行删除操作吗？";
+				if (confirm(msg)==true){
+					return true;
+				}else {
+					return false;
+				}
+			}*/
+			function del() <!--调用方法-->
+			{
+				var msg=confirm("删除是不可恢复的，你确认要删除吗？(这个功能还未实现，点确认取消都会执行删除操作)");
+				return msg === true;
+			}
+		</script>
 	</head>
 
 	<body>
@@ -60,7 +75,7 @@
 						<a th:text="${msg}"></a>
 					</div>
 					<h2>图书列表</h2>
-					<a class="btn btn-sm btn-success" th:href="@{/toAdd}">添加图书</a>
+					<a class="btn btn-sm btn-success" th:href="@{/book/toInsert}">添加图书</a>
 					<div class="table-responsive">
 						<table class="table table-striped table-sm">
 							<thead>
@@ -80,7 +95,7 @@
 									<td th:text="${book.getPressId()}"></td>
 									<td>
 										<a class="btn btn-sm btn-primary" th:href="@{'/book/toUpdate/'+${book.getBookId()}}">编辑</a>
-										<a class="btn btn-sm btn-danger" style="color: white" th:href="@{'/book/delete/'+${book.getBookId()}}">删除</a>
+										<a class="btn btn-sm btn-danger" style="color: white" th:href="@{'/book/delete/'+${book.getBookId()}}" th:onclick="del()">删除</a>
 									</td>
 								</tr>
 							</tbody>
