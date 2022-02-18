@@ -1,11 +1,11 @@
 package com.mavenbase.minilibspringboot.dao;
 
-import com.mavenbase.minilibspringboot.pojo.Account;
+import com.mavenbase.minilibspringboot.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Mapper
 @Repository
-public interface AccountMapper {
-    Account getAccount(String username);
+@Mapper
+public interface UserMapper {
+    User queryUserByName(String name);
 }

@@ -1,29 +1,32 @@
 package com.mavenbase.minilibspringboot.pojo;
 
-public class Account {
+public class User {
     private String UUID;
-    private String role;
     private String name;
     private String password;
+    private String role;
     private String timestamp;
-
-    public Account(String UUID, String role, String name, String password, String timestamp) {
-        this.UUID = UUID;
-        this.role = role;
-        this.name = name;
-        this.password = password;
-        this.timestamp = timestamp;
-    }
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "User{" +
                 "UUID='" + UUID + '\'' +
-                ", role='" + role + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 ", timestamp='" + timestamp + '\'' +
                 '}';
+    }
+
+    public User() {
+    }
+
+    public User(String UUID, String name, String password, String role, String timestamp) {
+        this.UUID = UUID;
+        this.name = name;
+        this.password = password;
+        this.role = role;
+        this.timestamp = timestamp;
     }
 
     public String getUUID() {
@@ -32,14 +35,6 @@ public class Account {
 
     public void setUUID(String UUID) {
         this.UUID = UUID;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String getName() {
@@ -56,6 +51,14 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getTimestamp() {
