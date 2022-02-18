@@ -5,7 +5,7 @@
 <mapper namespace="com.mavenbase.minilibspringboot.dao.BookMapper">
     <insert id="insertBook" parameterType="Books">
         insert into book.t_book (typeid, isbn, title, authors, pressid)
-        values (#{typeId}, #{isbn}, #{title}, #{authors}, #{pressId})
+        values (#{typeid}, #{isbn}, #{title}, #{authors}, #{pressid})
     </insert>
     <delete id="deleteBook" parameterType="Books">
         delete
@@ -14,12 +14,12 @@
     </delete>
     <update id="updateBook" parameterType="Books">
         update book.t_book
-        set typeid=#{typeId},
+        set typeid=#{typeid},
             isbn=#{isbn},
             title=#{title},
             authors=#{authors},
-            pressid=#{pressId}
-        where bookid = #{bookId}
+            pressid=#{pressid}
+        where bookid = #{bookid}
     </update>
     <select id="queryBookListByTitle" resultType="Books">
         select *
@@ -31,6 +31,6 @@
         select codeid,codename from book.code_booktype order by codeid
     </select>
     <select id="queryBookListById" resultType="Books">
-        select * from book.t_book where book.t_book.bookid=#{bookId}
+        select * from book.t_book where book.t_book.bookid=#{bookid}
     </select>
 </mapper>

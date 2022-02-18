@@ -1,43 +1,47 @@
 package com.mavenbase.minilibspringboot.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName(value = "t_book")
 public class Books {
-    private String bookId;
+
+    private String bookid;
     private String isbn;
     private String title;
     private String authors;
-    private String pressId;
-    private String typeId;
-
-    public Books() {
-    }
-
-    public Books(String bookId, String isbn, String title, String authors, String pressId, String typeId) {
-        this.bookId = bookId;
-        this.isbn = isbn;
-        this.title = title;
-        this.authors = authors;
-        this.pressId = pressId;
-        this.typeId = typeId;
-    }
+    private String pressid;
+    private String typeid;
 
     @Override
     public String toString() {
         return "Books{" +
-                "bookId='" + bookId + '\'' +
+                "bookid='" + bookid + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", title='" + title + '\'' +
                 ", authors='" + authors + '\'' +
-                ", pressId='" + pressId + '\'' +
-                ", typeId='" + typeId + '\'' +
+                ", pressid='" + pressid + '\'' +
+                ", typeid='" + typeid + '\'' +
                 '}';
     }
 
-    public String getBookId() {
-        return bookId;
+    public Books() {
     }
 
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
+    public Books(String bookid, String isbn, String title, String authors, String pressid, String typeid) {
+        this.bookid = bookid;
+        this.isbn = isbn;
+        this.title = title;
+        this.authors = authors;
+        this.pressid = pressid;
+        this.typeid = typeid;
+    }
+
+    public String getBookid() {
+        return bookid;
+    }
+
+    public void setBookid(String bookid) {
+        this.bookid = bookid;
     }
 
     public String getIsbn() {
@@ -64,19 +68,19 @@ public class Books {
         this.authors = authors;
     }
 
-    public String getPressId() {
-        return pressId;
+    public String getPressid() {
+        return pressid;
     }
 
-    public void setPressId(String pressId) {
-        this.pressId = pressId;
+    public void setPressid(String pressid) {
+        this.pressid = pressid;
     }
 
-    public String getTypeId() {
-        return typeId;
+    public String getTypeid() {
+        return typeid;
     }
 
-    public void setTypeId(String typeId) {
-        this.typeId = typeId;
+    public void setTypeid(String typeid) {
+        this.typeid = typeid;
     }
 }
