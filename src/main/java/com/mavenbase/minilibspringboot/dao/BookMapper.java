@@ -1,5 +1,6 @@
 package com.mavenbase.minilibspringboot.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.mavenbase.minilibspringboot.pojo.BookType;
 import com.mavenbase.minilibspringboot.pojo.Books;
 import org.apache.ibatis.annotations.Mapper;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface BookMapper {
+public interface BookMapper extends BaseMapper<Books> {
     List<Books> queryBookListByTitle(String title);
     int insertBook(Books books);
     int deleteBook(int id);

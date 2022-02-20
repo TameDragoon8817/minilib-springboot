@@ -1,4 +1,8 @@
 # 工程简介
 
-# 延伸阅读
-
+# 主要使用工具
+* SpringBoot
+* MyBatis+MyBatisPlus+Druid
+* Shiro
+* BootStrap
+* Thymeleaf
